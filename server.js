@@ -2,9 +2,12 @@ import express from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
-
+import cors from "cors"
+import productRoutes from "./Routes/productRoutes.js";
 
 const app = express();
+app.use(cors());
+app.use("/api", productRoutes);
 app.use(bodyParser.json());
 dotenv.config();
 

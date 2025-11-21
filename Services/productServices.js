@@ -71,10 +71,12 @@ const updateProduct = async (productNumber , productData) => {
     }
 }
 
-module.exports ={
+const productServices ={
     createProduct,
     deleteProduct,
     getProductByNumber,
     getAllProducts,
     updateProduct,
-}
+};
+
+export default productServices;

@@ -4,10 +4,10 @@ import Product from "../model/productModel.js"
 const createProduct = async (productData) => {
     try {
         // Find the largest product number
-        const lastProduct = await Product.findOne().sort({ id: -1});
+        const lastProduct = await Product.findOne().sort({ productNumber: -1});
 
         // Current product number
-        const productNumber = lastProduct ? lastProduct + 1 : 1;
+        const productNumber = lastProduct? lastProduct.productNumber + 1 : 1;
 
         const productToSave = new Product({
             ...productData,
@@ -26,7 +26,7 @@ const createProduct = async (productData) => {
 // Delete product by number
 const deleteProduct = async (productNumber) => {
     try {
-        return await Product.findOneAndDelete(productNumber);
+        return await Product.findOneAndDelete({productNumber});
     } catch (error) {
         throw new Error("Failed to delete product: " + error.message);
     }
@@ -37,7 +37,7 @@ const deleteProduct = async (productNumber) => {
 // Get product by number
 const getProductByNumber = async (productNumber) => {
     try{
-        return await Product.findOne(productNumber);
+        return await Product.findOne({productNumber});
     }
     catch (error) {
         throw new Error("Failed to get product by number" + error.message);

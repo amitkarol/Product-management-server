@@ -5,10 +5,13 @@ import dotenv from "dotenv"
 import cors from "cors"
 import productRoutes from "./Routes/productRoutes.js";
 
+
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api", productRoutes);
-app.use(bodyParser.json());
+
 dotenv.config();
 
 const PORT = process.env.PORT || 7000;

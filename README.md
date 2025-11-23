@@ -17,28 +17,66 @@ The system allows adding, editing, deleting, and searching products, with full i
 This repository contains the **Node.js server** for the Product Management assignment.  
 The React client (frontend UI) is hosted in a separate GitHub repository — [React Client Repository](https://github.com/amitkarol/Product-management-react.git)
 
+## System Requirements
+
+To run the server locally, please ensure the following is installed:
+
+- **Node.js v18+** (or any newer version)
+
+
 ## How to Run the Server
 
 Follow these steps to run the backend locally:
 
-### Clone the repository
+### 1. Clone the repository
 ```bash
 git clone https://github.com/amitkarol/Product-management-server.git
 cd Product-management-server
 ```
-## Install Dependencies
+## 2. Install Dependencies
 ```bash
 npm install
 ```
 
-## Start the server
+## 3. Start the server
 ```bash
-npm dev start
+npm start
 ```
 the server will run on http://localhost:8000
 
 ## MongoDB Information
-- DataBase name: productsManagement
-- Collection name: products
-- The database is pre-configuerd to accept external connections
 
+The MongoDB Atlas connection is *already fully configured* in the project via the included `.env` file.
+
+**I am fully aware that in real-world projects `.env` files should never be committed to Git**, as they contain sensitive credentials and should be kept private.  
+However, **for the purpose of this assignment**, the `.env` file is intentionally included so you can easily run the server and verify the database functionality without any additional setup.
+
+This project uses a **MongoDB Atlas cloud database**, so no local MongoDB installation is required.
+
+For verification purposes:
+- **Database name:** `productsManagement`
+- **Collection name:** `products`
+
+Once the server starts, it will automatically connect to the Atlas database using the supplied credentials.
+
+
+## API Endpoints
+All backend routes are automatically prefixed with `/api` as defined in the server configuration.
+
+| Method | Endpoint                       | Description                |
+|--------|--------------------------------|----------------------------|
+| GET    | `/api/products`                | Fetch all products         |
+| POST   | `/api/products`                | Create a new product       |
+| PATCH  | `/api/products/:productNumber` | Update an existing product |
+| DELETE | `/api/products/:productNumber` | Delete a product           |
+| GET    | `/api/products/:productNumber` | Fetch a product            |
+
+## React Client Source Code
+The full source code of the React client is available here:
+[React Client Repository](https://github.com/amitkarol/Product-management-react.git)
+
+## Notes for Reviewers
+- Backend communicates with MongoDB Atlas using Mongoose.
+- Full CRUD operations implemented.
+- The UI includes modals, validation, search, toast notifications, and confirmation dialogs.
+- The React production build is already included with the server so the system works immediately after npm start.

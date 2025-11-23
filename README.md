@@ -17,14 +17,13 @@ The system allows adding, editing, deleting, and searching products, with full i
 This repository contains the **Node.js server** for the Product Management assignment.  
 The React client (frontend UI) is hosted in a separate GitHub repository — [React Client Repository](https://github.com/amitkarol/Product-management-react.git)
 
----
 ## How to Run the Server
 
 Follow these steps to run the backend locally:
 
 ### Clone the repository
 ```bash
-git clone <https://github.com/amitkarol/Product-management-server.git>
+git clone https://github.com/amitkarol/Product-management-server.git
 cd Product-management-server
 ```
 ## Install Dependencies
@@ -41,5 +40,5 @@ the server will run on http://localhost:8000
 ## MongoDB Information
 - DataBase name: productsManagement
 - Collection name: products
-  The database is pre-configuerd to accept external connections
+- The database is pre-configuerd to accept external connections
 

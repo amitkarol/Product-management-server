@@ -61,7 +61,7 @@ const updateProduct = async (productNumber , productData) => {
         const updatedProduct = await Product.findOneAndUpdate(
             {productNumber} ,
             productData,
-            {new: true}
+            {new: true , runValidators: true} // returns the updated object , enforce schema validations
         );
 
         return updatedProduct

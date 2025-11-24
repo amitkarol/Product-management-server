@@ -24,15 +24,30 @@ To run the server locally, please ensure the following is installed:
 - **Node.js v18+** (or any newer version)
 
 
-## How to Run the Server
+## 1. How to Run the Server
 
-Follow these steps to run the backend locally:
+You can set up the project in two possible ways:
 
-### 1. Clone the repository
+### Option 1 - Clone the Repository (requires git)
+If Git is **installed** on your machine, you may use:
+
 ```bash
 git clone https://github.com/amitkarol/Product-management-server.git
 cd Product-management-server
 ```
+
+### Option 2 — Download ZIP (Git not required)
+
+If Git is **not installed**, you can download the project as a ZIP:
+
+1. Go to the repository page 
+
+2. Click **Code → Download ZIP**
+
+3. Extract the folder
+
+4. Open the extracted folder in your terminal
+
 ## 2. Install Dependencies
 ```bash
 npm install
@@ -42,7 +57,7 @@ npm install
 ```bash
 npm start
 ```
-the server will run on http://localhost:8000
+the server will run at http://localhost:8000
 
 ## MongoDB Information
 

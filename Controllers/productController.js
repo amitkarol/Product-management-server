@@ -4,8 +4,17 @@ import productServices from "../Services/productServices.js"
 const createProduct = async(req , res) => {
     try {
             const newProduct =  await productServices.createProduct(req.body);
-            return res.status(200).json(newProduct)
+            return res.status(201).json(newProduct)
     } catch (error) {
+
+        if (error.name === "ValidationError") {
+            return res.status(400).json({message: "Invalid product data"})
+        }
+
+        if (error.code === 11000) {
+            return res.status(400).json({message: "Duplicate productNumber"})
+        }
+
         return res.status(500).json({errorMessage:error.message})
     }
 }
@@ -75,10 +84,8 @@ const updateProduct = async(req , res) => {
 
         const updatedProduct = await productServices.updateProduct(productNumber , productData);
 
-        if (!updateProduct) {
-            return res.status(404).json({
-                errorMessage: "Product not found."
-            });
+        if (!updatedProduct) {
+            return res.status(404).json({ errorMessage: "Product not found."});
         }
 
         return res.status(200).json(updatedProduct);
